@@ -1,7 +1,7 @@
 // index.js
 document.addEventListener('DOMContentLoaded', function() {
     // API Configuration - Change this URL when deploying to different environments
-    const API_URL = 'http://myfoodisgettingcold.hopto.org:5001';
+    const API_URL = 'https://myfoodisgettingcold.hopto.org/predict';
     
     // Canvas elements
     const canvases = [
