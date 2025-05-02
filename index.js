@@ -209,19 +209,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(requestData)
+            mode: 'cors' 
         })
         .then(response => {
-            return response.json().then(data => {
                 if (!response.ok) {
-                    // Even if the response has an error status code,
-                    // try to display whatever info we got back
-                    if (data.digit1 && data.operator && data.digit2) {
-                        updatePredictionDisplay(data);
-                    }
-                    throw new Error(data.error || 'Network response was not ok');
+                    throw new Error('HTTP error! status: ${response.status}');
                 }
-                return data;
-            });
+                return response.json();
         })
         .then(data => {
             // Update UI with successful results
