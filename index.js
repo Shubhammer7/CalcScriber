@@ -208,14 +208,13 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(requestData),
-            mode: 'cors' 
+            body: JSON.stringify(requestData)
         })
         .then(response => {
-                if (!response.ok) {
-                    throw new Error('HTTP error! status: ${response.status}');
-                }
-                return response.json();
+            if (!response.ok) {
+                throw new Error('HTTP error! status: ' + response.status);
+            }
+            return response.json();
         })
         .then(data => {
             // Update UI with successful results
@@ -223,8 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch((error) => {
             console.error('Error:', error);
-            document.getElementById('result').textContent = "Error: " + error.message + 
-                "\nPlease try drawing more clearly.";
+            document.getElementById('result').textContent = "Error: " + error.message;
         });
     }
     
